@@ -1,0 +1,105 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_orders",
+  "info": {
+    "singularName": "job-order",
+    "pluralName": "job-orders",
+    "displayName": "Job Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "jobOrderId": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "customerNote": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "enumeration",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical",
+        "immediate"
+      ]
+    },
+    "assignees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::employee.employee"
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "invoice": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::invoice.invoice",
+      "mappedBy": "jobOrder"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "processing",
+        "ongoing",
+        "completed",
+        "cancelled",
+        "rejected"
+      ],
+      "default": "new"
+    },
+    "vehicle": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::vehicle.vehicle"
+    },
+    "lineItems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::line-item.line-item",
+      "mappedBy": "jobOrder"
+    },
+    "verifiedDate": {
+      "type": "datetime"
+    },
+    "client": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client"
+    },
+    "requestedByUser": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "withVat": {
+      "type": "boolean",
+      "default": true
+    },
+    "complain": {
+      "type": "string"
+    },
+    "diagnosis": {
+      "type": "string"
+    },
+    "completionOfWork": {
+      "type": "string"
+    }
+  }
+}

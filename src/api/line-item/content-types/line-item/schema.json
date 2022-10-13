@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "line_items",
+  "info": {
+    "singularName": "line-item",
+    "pluralName": "line-items",
+    "displayName": "Line Item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "cost": {
+      "type": "decimal"
+    },
+    "jobOrder": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::job-order.job-order",
+      "inversedBy": "lineItems"
+    }
+  }
+}

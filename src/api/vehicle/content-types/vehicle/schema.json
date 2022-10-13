@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicles",
+  "info": {
+    "singularName": "vehicle",
+    "pluralName": "vehicles",
+    "displayName": "Vehicle",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "modelName": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "remarks": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "down",
+        "pending",
+        "running"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "yearModel": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "bodyType": {
+      "type": "enumeration",
+      "enum": [
+        "sedan",
+        "hatch",
+        "mpv",
+        "suv"
+      ]
+    },
+    "plate": {
+      "type": "string"
+    },
+    "engineDescription": {
+      "type": "string"
+    },
+    "engineType": {
+      "type": "enumeration",
+      "enum": [
+        "unleaded",
+        "diesel",
+        "hybrid",
+        "electric"
+      ]
+    },
+    "client": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client.client",
+      "inversedBy": "fleet"
+    },
+    "runningCondition": {
+      "type": "boolean"
+    },
+    "transmission": {
+      "type": "enumeration",
+      "enum": [
+        "mt",
+        "at",
+        "cvt"
+      ]
+    },
+    "location": {
+      "type": "string"
+    }
+  }
+}

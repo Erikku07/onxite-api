@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_informations",
+  "info": {
+    "singularName": "user-information",
+    "pluralName": "user-informations",
+    "displayName": "User Information",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "middleName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}
