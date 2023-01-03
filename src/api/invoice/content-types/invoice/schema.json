@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoices",
+  "info": {
+    "singularName": "invoice",
+    "pluralName": "invoices",
+    "displayName": "Invoice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "invoiceId": {
+      "type": "string"
+    },
+    "jobOrder": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::job-order.job-order",
+      "inversedBy": "invoice"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "partial",
+        "paid"
+      ]
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "client": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client"
+    },
+    "lineItems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::line-item.line-item",
+      "mappedBy": "invoice"
+    }
+  }
+}
